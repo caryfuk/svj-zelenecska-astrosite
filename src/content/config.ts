@@ -12,7 +12,7 @@ const seoSchema = z.object({
     pageType: z.enum(['website', 'article']).default('website')
 });
 
-const blog = defineCollection({
+const posts = defineCollection({
     schema: z.object({
         title: z.string(),
         excerpt: z.string().optional(),
@@ -31,14 +31,4 @@ const pages = defineCollection({
     })
 });
 
-const projects = defineCollection({
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional()
-    })
-});
-
-export const collections = { blog, pages, projects };
+export const collections = { posts, pages };

@@ -18,13 +18,13 @@ const { page, class: className } = Astro.props;
             </IconButton>
         )
     }
-    <span class="text-sm" aria-current="page">Page {page.currentPage} of {page.lastPage}</span>
+    <span class="text-sm" aria-current="page">Stránka {page.currentPage} z {page.lastPage}</span>
     {
         page.url.next && (
             <IconButton
                 class="absolute right-0 top-1/2 -translate-y-1/2"
                 href={page.url.next}
-                aria-label={`Go to page ${page.currentPage + 1} of ${page.lastPage}`}
+                aria-label={`Go to page ${page.currentPage + 1} z ${page.lastPage}`}
             >
                 <ArrowRight class="w-5 h-5 fill-current" />
             </IconButton>

@@ -5,20 +5,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Subscribe from '../../components/Subscribe.astro';
 import { sortItemsByDateDesc, getAllTags, getPostsByTag } from '../../utils/data-utils';
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+const posts = (await getCollection('posts')).sort(sortItemsByDateDesc);
 const tags = getAllTags(posts).sort((tagA, tagB) => {
-    const postCountTagA = getPostsByTag(posts, tagA.slug).length;
-    const postCountTagB = getPostsByTag(posts, tagB.slug).length;
-    return postCountTagB - postCountTagA;
+    return tagA.name.localeCompare(tagB.name);
 });
 ---
 
-<BaseLayout
-    title="Tags"
-    description="Explore tag directory for easy navigation and discovery. Find a wide range of topics, articles, and insights organized by tags, making it effortless to locate the content that interests you most."
-    showHeader={false}
->
-    <h1 class="mb-12 text-2xl font-serif italic sm:mb-16 sm:text-4xl">All Tags</h1>
+<BaseLayout title="Štítky" showHeader={false}>
+    <h1 class="mb-12 text-2xl font-serif italic sm:mb-16 sm:text-4xl">Všechny štítky</h1>
     {
         tags.map((tag) => {
             const postCount = getPostsByTag(posts, tag.slug).length;
@@ -33,7 +27,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
                         </div>
                     </div>
                     <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
-                        View Tag Archive <ArrowRight class="fill-current w-4 h-4" />
+                        Prohlédnout všechny příspěvky <ArrowRight class="fill-current w-4 h-4" />
                     </div>
                 </a>
             );
