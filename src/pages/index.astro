@@ -66,7 +66,7 @@ type Props = { post: CollectionEntry<'posts'> };
     {
         firstThree?.length > 0 && (
             <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Příspěvky</h2>
+                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Další příspěvky</h2>
                 {firstThree.map((post) => (
                     <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
                 ))}
@@ -76,4 +76,8 @@ type Props = { post: CollectionEntry<'posts'> };
             </div>
         )
     }
+    <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Nadcházející události</h2>
+    <iframe
+        src="https://calendar.google.com/calendar/embed?height=500&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FPrague&src=OG45ajNwZzc0Z20wc3F1MmtoNTdndmhudDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23F6BF26&mode=AGENDA&hl=cs"
+        class="gcalendar"></iframe>
 </BaseLayout>
