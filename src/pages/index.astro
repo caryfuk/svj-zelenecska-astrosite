@@ -18,7 +18,7 @@ type Props = { post: CollectionEntry<'posts'> };
 ---
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
-    <article class="mb-16 sm:mb-24">
+    <article class="mb-16">
         <header class="mb-8">
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">
                 <a href={`/posts/${latestPost.slug}`} class="hover:underline hover:decoration-dashed hover:underline-offset-4 hover:decoration-1">{title}</a>
@@ -54,21 +54,21 @@ type Props = { post: CollectionEntry<'posts'> };
             }
             <Button
                 class="copy-url-button"
-                aria-label="Copy link"
+                aria-label="Zkopírovat odkaz"
                 data-url={`${Astro.request.url}posts/${latestPost.slug}`}
-                data-tooltip-default="Copy link"
-                data-tooltip-success="Copied"
+                data-tooltip-default="Zkopírovat odkaz"
+                data-tooltip-success="Odkaz zkopírován"
             >
-                Share
+                Sdílet
             </Button>
         </div>
     </article>
     {
         firstThree?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Další příspěvky</h2>
+            <div class="mb-16">
+                <h2 class="mb-12 text-xl font-serif italic sm:text-2xl">Další příspěvky</h2>
                 {firstThree.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
+                    <PostPreview post={post} class="mb-10" headingLevel="h3" />
                 ))}
                 <div class="mt-12 sm:mt-16">
                     <Button href="/posts">Zobrazit všechny příspěvky</Button>

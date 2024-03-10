@@ -5,8 +5,8 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Inter', ...defaultTheme.fontFamily.sans],
-            serif: ['Newsreader', ...defaultTheme.fontFamily.serif]
+            sans: 'Helvetica',
+            serif: 'Palatino'
         },
         extend: {
             textColor: {
@@ -37,7 +37,13 @@ module.exports = {
                         '--tw-prose-pre-code': theme('colors.zinc.100'),
                         '--tw-prose-pre-bg': theme('colors.zinc.800'),
                         '--tw-prose-th-borders': theme('borderColor.main / 100%'),
-                        '--tw-prose-td-borders': theme('borderColor.main / 100%')
+                        '--tw-prose-td-borders': theme('borderColor.main / 100%'),
+                        ul: {
+                            li: {
+                                margin: 0,
+                                padding: 0
+                            }
+                        }
                     }
                 },
                 DEFAULT: {

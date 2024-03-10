@@ -4,7 +4,7 @@ seo:
   title: O SVJ
 ---
 
-| Záznam         | Hodnota                                                           |
+|                |                                                                   |
 | -------------- | ----------------------------------------------------------------- |
 | Název subjektu | Společenství vlastníků jednotek pro domy Zelenečská 510, 511, 512 |
 | IČ             | 24711641                                                          |
