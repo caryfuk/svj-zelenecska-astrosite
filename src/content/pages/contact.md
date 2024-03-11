@@ -9,6 +9,12 @@ seo:
 Zelenečská 510/59,
 Praha 198 00
 
+## Kontakty
+
+- e-mail: zelenecska.svj@gmail.com
+- telefon: 604 112 357 (předseda výboru)
+- datová schránka: 4bn2gw2
+
 ## Členové výboru
 
 - Pavel Moravec (předseda)
@@ -17,15 +23,15 @@ Praha 198 00
 
 ## Správa domu
 
-JiViŠ, s.r.o.
-Poděbradská 489/116
-Hloubětín – Praha 9
+JiViŠ, s.r.o.,
+Poděbradská 489/116,
+Hloubětín – Praha 9,
 198 00
 
 ### Technik:
 
 Romana Kubásková,
-mobil: 602 380 087,
+telefon: 602 380 087,
 e-mail: romana.kubaskova@jivis.cz
 
 ### Účetní:
