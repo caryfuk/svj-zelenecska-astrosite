@@ -37,7 +37,10 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    title: 'SVJ pro domy Zelenečská 510 - 512',
+    title: 'SVJ Zelenečská 510 - 512',
+    logo: {
+        src: 'z-small.png'
+    },
     description: 'Zápisy, pozvánky, novinky a užitečné informace pro vlastníky bytů v domech Zelenečská 510 - 512 v Praze 9',
     headerNavLinks: [
         {
