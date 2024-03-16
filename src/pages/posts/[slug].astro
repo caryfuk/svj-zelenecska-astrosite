@@ -1,16 +1,16 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/Button.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import PostPreview from '../../components/PostPreview.astro';
-import Subscribe from '../../components/Subscribe.astro';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
-import { slugify } from '../../utils/common-utils';
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Button from '../../components/Button.astro'
+import FormattedDate from '../../components/FormattedDate.astro'
+import PostPreview from '../../components/PostPreview.astro'
+import Subscribe from '../../components/Subscribe.astro'
+import { sortItemsByDateDesc } from '../../utils/data-utils'
+import { slugify } from '../../utils/common-utils'
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('posts')).sort(sortItemsByDateDesc);
-    const postCount = posts.length;
+    const posts = (await getCollection('posts')).sort(sortItemsByDateDesc)
+    const postCount = posts.length
     return posts.map((post, index) => ({
         params: { slug: post.slug },
         props: {
@@ -18,20 +18,20 @@ export async function getStaticPaths() {
             prevPost: index + 1 !== postCount ? posts[index + 1] : null,
             nextPost: index !== 0 ? posts[index - 1] : null
         }
-    }));
+    }))
 }
 
-type Props = { post: CollectionEntry<'posts'>; prevPost: CollectionEntry<'posts'>; nextPost: CollectionEntry<'posts'> };
+type Props = { post: CollectionEntry<'posts'>; prevPost: CollectionEntry<'posts'>; nextPost: CollectionEntry<'posts'> }
 
-const { href } = Astro.url;
-const { post, prevPost, nextPost } = Astro.props;
-const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
-const { Content } = await post.render();
+const { href } = Astro.url
+const { post, prevPost, nextPost } = Astro.props
+const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data
+const { Content } = await post.render()
 ---
 
 <BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image} pageType="article" showHeader={false}>
     <article class="mb-16">
-        <header class="mb-8">
+        <header class="mb-8" transition:name={post.slug}>
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
             <div class="mt-4 text-sm">
                 <FormattedDate date={publishDate} />
@@ -86,22 +86,22 @@ const { Content } = await post.render();
 
 <script>
     document.addEventListener('astro:page-load', () => {
-        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement;
+        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement
         copyUrlButton?.addEventListener('click', async () => {
-            await copyUrl(copyUrlButton);
-        });
+            await copyUrl(copyUrlButton)
+        })
 
         async function copyUrl(button: HTMLButtonElement) {
-            let url = button.getAttribute('data-url') || '';
-            let label = button.innerText;
+            let url = button.getAttribute('data-url') || ''
+            let label = button.innerText
 
-            await navigator.clipboard.writeText(url);
+            await navigator.clipboard.writeText(url)
 
-            button.innerText = 'Zkopírováno';
+            button.innerText = 'Zkopírováno'
 
             setTimeout(() => {
-                button.innerText = label;
-            }, 2500);
+                button.innerText = label
+            }, 2500)
         }
-    });
+    })
 </script>

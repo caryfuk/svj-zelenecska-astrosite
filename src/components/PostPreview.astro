@@ -1,17 +1,17 @@
 ---
-import { type CollectionEntry } from 'astro:content';
-import ArrowRight from '../icons/ArrowRight.astro';
-import FormattedDate from './FormattedDate.astro';
+import { type CollectionEntry } from 'astro:content'
+import ArrowRight from '../icons/ArrowRight.astro'
+import FormattedDate from './FormattedDate.astro'
 
-type Props = { post: CollectionEntry<'posts'>; class?: string; headingLevel?: 'h2' | 'h3' };
+type Props = { post: CollectionEntry<'posts'>; class?: string; headingLevel?: 'h2' | 'h3' }
 
-const { post, class: className, headingLevel = 'h2' } = Astro.props;
-const { title, publishDate, updatedDate, excerpt } = post.data;
-const TitleTag = headingLevel;
+const { post, class: className, headingLevel = 'h2' } = Astro.props
+const { title, publishDate, updatedDate, excerpt } = post.data
+const TitleTag = headingLevel
 ---
 
 <a class:list={['flex justify-between items-start gap-8 group', className]} href={`/posts/${post.slug}/`}>
-    <div class="grow">
+    <div class="grow" transition:name={post.slug}>
         <TitleTag
             class="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-dashed group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl"
         >

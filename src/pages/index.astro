@@ -1,25 +1,25 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button.astro';
-import PostPreview from '../components/PostPreview.astro';
-import siteConfig from '../data/site-config';
-import { sortItemsByDateDesc } from '../utils/data-utils';
-import FormattedDate from '../components/FormattedDate.astro';
-import { slugify } from '../utils/common-utils';
+import { getCollection, type CollectionEntry } from 'astro:content'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/Button.astro'
+import PostPreview from '../components/PostPreview.astro'
+import siteConfig from '../data/site-config'
+import { sortItemsByDateDesc } from '../utils/data-utils'
+import FormattedDate from '../components/FormattedDate.astro'
+import { slugify } from '../utils/common-utils'
 
-const posts = (await getCollection('posts')).sort(sortItemsByDateDesc);
-const firstThree = posts.slice(1, 4);
-const latestPost = posts[0];
-const { tags, title, publishDate, updatedDate } = posts[0].data;
-const { Content } = await latestPost.render();
+const posts = (await getCollection('posts')).sort(sortItemsByDateDesc)
+const firstThree = posts.slice(1, 4)
+const latestPost = posts[0]
+const { tags, title, publishDate, updatedDate } = posts[0].data
+const { Content } = await latestPost.render()
 
-type Props = { post: CollectionEntry<'posts'> };
+type Props = { post: CollectionEntry<'posts'> }
 ---
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
     <article class="mb-16">
-        <header class="mb-8">
+        <header class="mb-8" transition:name={latestPost.slug}>
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">
                 <a href={`/posts/${latestPost.slug}`} class="hover:underline hover:decoration-dashed hover:underline-offset-4 hover:decoration-1">{title}</a>
             </h1>
