@@ -73,7 +73,7 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'Github (repozitář tohoto webu)',
-            href: 'https://github.com/caryfuk/svj-zelenecska'
+            href: 'https://github.com/caryfuk/svj-zelenecska-astrosite'
         }
     ],
     postsPerPage: 8
