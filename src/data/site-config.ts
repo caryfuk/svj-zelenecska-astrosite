@@ -66,6 +66,16 @@ const siteConfig: SiteConfig = {
             href: '/contact'
         }
     ],
+    socialLinks: [
+        {
+            text: 'Facebook',
+            href: 'https://www.facebook.com/zelenecska'
+        },
+        {
+            text: 'Github (repozitář tohoto webu)',
+            href: 'https://github.com/caryfuk/svj-zelenecska'
+        }
+    ],
     postsPerPage: 8
 };
 
